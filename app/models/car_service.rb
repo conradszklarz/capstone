@@ -1,0 +1,2 @@
+class CarService < ApplicationRecord
+end

@@ -1,32 +1,50 @@
 class Api::MaintenanceEventsController < ApplicationController
+  def index
+    @maintenance_events = MaintenanceEvent.all
 
-  def first
-    @maintenance_event = MaintenanceEvent.first
-    render 'one_maintenance_event.json.jbuilder'
-    
-  end
-  def second
-    @maintenance_event = MaintenanceEvent.second
-    render 'one_maintenance_event.json.jbuilder'
-    
-  end
-  def third
-    @maintenance_event = MaintenanceEvent.third
-    render 'one_maintenance_event.json.jbuilder'
-    
-  end
-  def change_oil
-    @message = "Time to change your oil and oil filter. Also, please remember to blow out engine air filter, cabin air filter, top off radiator and radiator reservoir, top off brake fluid tank, check tire pressure, and check for any leaks under the car."
-    render 'change_oil.json.jbuilder'
+    render 'index.json.jbuilder'
   end
 
-  def tires
-    @message = "Time to balance and rotate your tires"
-    render 'tires.json.jbuilder'
+  def create
+    @maintenance_event = MaintenanceEvent.new(
+                         car_id: params[:car_id],
+                         provider: params[:provider],
+                         price: params[:price],
+                         date: params[:date],
+                         complete: params[:complete],
+                         mileage: params[:mileage]
+                         )
+    @maintenance_event.save
+    render 'show.json.jbuilder'
   end
 
-  def every_30k
-    @message = "You've driven 30,000 miles, at this interval you should change your engine air filter, cabin air filter, spark plugs, and spark plug wires. Make sure to contact your local dealer or look through your owners manual to find the proper spark plug gap and adjust accordingly."
-    render 'every_30k.json.jbuilder'
+  def show
+    maintenance_event_id = params[:id]
+    @maintenance_event = MaintenanceEvent.find(maintenance_event_id)
+
+    render 'show.json.jbuilder'
+  end
+
+  def update
+    maintenance_event_id = params[:id]
+    @maintenance_event = MaintenanceEvent.find(maintenance_event_id)
+
+    @maintenance_event.car_id = params[:car_id] || @maintenance_event.car_id
+    @maintenance_event.provider = params[:provider] || @maintenance_event.provider
+    @maintenance_event.price = params[:price] || @maintenance_event.price
+    @maintenance_event.date = params[:date] || @maintenance_event.date
+    @maintenance_event.complete = params[:complete] || @maintenance_event.complete
+    @maintenance_event.mileage = params[:mileage] || @maintenance_event.mileage
+
+    @maintenance_event.save
+    render 'show.json.jbuilder'
+  end
+
+  def destroy
+    maintenance_event_id = params[:id]
+    @maintenance_event = MaintenanceEvent.find(maintenance_event_id)
+    @maintenance_event.destroy
+    render json: {message: "Maintenance event successfully destroyed."}
   end
 end
+

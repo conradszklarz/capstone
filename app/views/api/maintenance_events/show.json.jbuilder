@@ -1,0 +1,1 @@
+json.partial! @maintenance_event, partial: "maintenance_event", as: :maintenance_event

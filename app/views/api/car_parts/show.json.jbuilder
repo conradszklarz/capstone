@@ -1,0 +1,1 @@
+json.partial! @car_part, partial: "car_part", as: :car_part
