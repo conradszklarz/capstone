@@ -1,2 +1,5 @@
 class User < ApplicationRecord
-end
+  def create
+  end 
+
+
