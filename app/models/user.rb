@@ -1,5 +1,10 @@
 class User < ApplicationRecord
-  def create
-  end 
+  has_many :cars
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :name, presence: true
+  has_secure_password
+
+end
 
 

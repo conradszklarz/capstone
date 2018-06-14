@@ -1,4 +1,4 @@
-_json.id maintenance_event.id
+json.id maintenance_event.id
 json.car_id maintenance_event.car_id
 json.provider maintenance_event.provider
 json.price maintenance_event.price
