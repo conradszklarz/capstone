@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  
+  post 'user_token' => 'user_token#create'
 
   namespace :api do
-  get '/users' => 'users#index'
-  get '/users' => 'users#show'
-  post '/users' => 'users#create'
-  patch '/users/:id' => 'users#update'
-  delete '/users/:id' => 'users#destroy'
+  # get '/users' => 'users#index'
+  post "/users" => "users#create"
+  # get '/users' => 'users#show'
+  # post '/users' => 'users#create'
+  # patch '/users/:id' => 'users#update'
+  # delete '/users/:id' => 'users#destroy'
 
   get '/cars' => 'cars#index'
   get '/cars' => 'cars#show'
