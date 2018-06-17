@@ -1,4 +1,4 @@
-class Api::ServicesController < ApplicationController
+tclass Api::ServicesController < ApplicationController
   def index
     @service = Service.all
     render 'index.json.jbuilder'
