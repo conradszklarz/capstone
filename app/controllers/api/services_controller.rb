@@ -1,6 +1,6 @@
 tclass Api::ServicesController < ApplicationController
   def index
-    @service = Service.all
+    @services = Service.all
     render 'index.json.jbuilder'
   end
 

@@ -1,6 +1,6 @@
 class Api::MaintenanceServicesController < ApplicationController
   def index
-    @maintenance_service = MaintenanceService.all
+    @maintenance_services = MaintenanceService.all
 
     render 'index.json.jbuilder'
   end

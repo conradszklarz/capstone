@@ -1,4 +1,4 @@
 class Service < ApplicationRecord
-  belongs_to :car_service
-  belongs_to :maintenance_service
+  has_many :car_services
+  has_many :maintenance_services
 end
