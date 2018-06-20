@@ -4,25 +4,25 @@ Rails.application.routes.draw do
   namespace :api do
   # get '/users' => 'users#index'
   
-  # get '/users' => 'users#show'
+  get '/users/:id' => 'users#show'
   post '/users' => 'users#create'
   # patch '/users/:id' => 'users#update'
   # delete '/users/:id' => 'users#destroy'
 
   get '/cars' => 'cars#index'
-  get '/cars' => 'cars#show'
+  get '/cars/:id' => 'cars#show'
   post '/cars' => 'cars#create'
   patch '/cars/:id' => 'cars#update'
   delete '/cars/:id' => 'cars#destroy'
   
   get '/car_services' => 'car_services#index'
-  get '/car_services' => 'car_services#show'
+  get '/car_services/:id' => 'car_services#show'
   post '/car_services' => 'car_services#create'
   patch '/car_services/:id' => 'car_services#update'
   delete '/car_services/:id' => 'car_services#destroy'
 
   get '/services' => 'services#index'
-  get '/services' => 'services#show'
+  get '/services/:id' => 'services#show'
   post '/services' => 'services#create'
   patch '/services/:id' => 'services#update'
   delete '/services/:id' => 'services#destroy'

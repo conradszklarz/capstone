@@ -50,3 +50,9 @@ user = User.new(
   password_confirmation: "password")
 user.save
 
+car = Car.new(user_id: 1, year: 2018, make:"Chevy", model:"Camaro", mileage:14,580)
+car.save
+
+car_service = CarService.new(car_id: 1, service_id: 1)
+car_service.save
+
