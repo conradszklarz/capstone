@@ -6,28 +6,34 @@ class Car < ApplicationRecord
   has_many :services, through: :car_services
 
   def miles_difference
-    last_oil_change = nil # creates a local variable to start finding last oil change
+    last_oil_change = nil 
 
-    maintenance_events.order(:date).each do |maintenance_event|  # loops through each maintenance_event according to date
-      if maintenance_event.oil_change? #  
-        last_oil_change = maintenance_event
+    maintenance_events.order(:date).each do |maintenance_event|  
+      if maintenance_event.oil_change?   
+        last_oil_change = maintenance_event 
       end
     end
 
-    difference = mileage - last_oil_change.mileage
+    difference = mileage - last_oil_change.mileage 
     difference > 4000
   end
 
   def months_difference
     last_oil_change = nil
-    
 
+    maintenance_events.order(:date).each do |maintenance_event|
+      if maintenance_event.oil_change?
+        last_oil_change = maintenance_event
+      end
+    end
 
-    
+    last_oil_change.date < 4.months.ago
   end
+    
+
 
   def oil_change_alert?
-    
+    miles_difference || months_difference
   end
 end
 
