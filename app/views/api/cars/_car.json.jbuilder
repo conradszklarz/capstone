@@ -4,4 +4,4 @@ json.year car.year
 json.make car.make
 json.model car.model
 json.mileage car.mileage
-json.has_oil_change_alert car.oil_change_alert?
+json.alerts car.alerts
