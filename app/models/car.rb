@@ -51,7 +51,7 @@ class Car < ApplicationRecord
     service_to_check = Service.find(2)#oil change
 
     if oil_change_alert?
-      alerts_collection << "Time to change your oil and oil filter. ***For the do-it-yourselfer...please remember to blow out engine air filter, cabin air filter, top off radiator and radiator reservoir, top off brake fluid tank, grease all grease joints, check tire pressure, and check for any leaks under the car."
+      alerts_collection << "Time to change your oil and oil filter."
     end
 
     alerts_collection
