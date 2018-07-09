@@ -93,8 +93,48 @@ class Car < ApplicationRecord
       end
     end
       if maintenance_event.belts?
-        maintenance_event.date.belts < 60.months.ago
+        maintenance_event.date < 60.months.ago
         if created_at < 60.months.ago
+          true
+        else
+          false
+        end
+      end
+      if maintenance_event.timing_belt?
+        maintenance_event.date < 100.months.ago
+        if created_at < 100.months.ago
+          true
+        else
+          false
+        end
+      end
+      if maintenance_event.hoses?
+        maintenance_event.date < 48.months.ago
+        if created_at < 48.months.ago
+          true
+        else
+          false
+        end
+      end
+      if maintenance_event.alignment?
+        maintenance_event.date < 12.months.ago
+        if created_at < 12.months.ago
+          true
+        else
+          false
+        end
+      end
+      if maintenance_event.wipers?
+        maintenance_event.date < 6.months.ago
+        if created_at < 6.months.ago
+          true
+        else
+          false
+        end
+      end
+      if maintenance_event.tires?
+        maintenance_event.date < 50.months.ago
+        if created_at < 50.months.ago
           true
         else
           false
@@ -121,7 +161,7 @@ class Car < ApplicationRecord
     miles_difference || months_difference
   end
 
-  def timing_belt?()
+  def timing_belt_alert?()
     miles_difference || months_difference
   end
 
@@ -169,6 +209,26 @@ class Car < ApplicationRecord
 
     if belts_alert?
       alerts_collection << "It's been awhile since your serpentine belt has been changed. Also, since you have your belt off be sure to check all your wheels, pulleys, and belt tensioner(s) spin freely. If any do not, change them now."
+    end
+
+    if timing_belt_alert?
+      alerts_collection << "There is some work to be done. At this interval you should have your timing belt replaced, transmission fluid replaced, and also change out your shocks/struts."
+    end
+
+    if hoses_alert?
+      alerts_collection << "Time to replace your radiator and vacuum hoses."
+    end
+
+    if alignment_alert?
+      alerts_collection << "It's been a year, time to get a wheel alignment to make sure everything is straight and so your tires don't wear quicker than normal. This should also be done after purchasing new tires."
+    end
+
+    if wipers_alert?
+      alerts_collection << "6 months have passed since your windshield wipers have been replaced.  To ensure you always have good visibility in all types of weather, change those wipers! Also, make sure to fill your windshield wiper fluid reservior."
+    end
+
+    if tires_alert?
+      alerts_collection << "Over 4 years have passed since you purchased your tires and to ensure you have proper traction in all types of weather please change them!"
     end
 
     alerts_collection
