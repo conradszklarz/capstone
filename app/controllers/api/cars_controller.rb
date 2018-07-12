@@ -1,6 +1,6 @@
 class Api::CarsController < ApplicationController
   def index
-    @cars = Car.all
+    @cars = Car.where(user_id: current_user)
 
     render 'index.json.jbuilder'
   end
