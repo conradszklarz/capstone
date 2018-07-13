@@ -1,7 +1,6 @@
 class Api::MaintenanceEventsController < ApplicationController
   def index
     @maintenance_events = MaintenanceEvent.all
-
     render 'index.json.jbuilder'
   end
 
