@@ -5,7 +5,9 @@ json.price maintenance_event.price
 json.date maintenance_event.date
 json.complete maintenance_event.complete
 json.mileage maintenance_event.mileage
+json.formatted_time maintenance_event.formatted_time
 
 json.services do
-json.array! maintenance_event.services, partial: "api/services/service", as: :service
+  json.array! maintenance_event.services, partial: "api/services/service", as: :service
 end
+

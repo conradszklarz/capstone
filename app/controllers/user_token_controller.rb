@@ -1,5 +1,5 @@
 class UserTokenController < Knock::AuthTokenController
-  protect_from_forgery with: :null_session
+
   def create
     email = request.params["auth"] && request.params["auth"]["email"]
     user = User.find_by(email: email)

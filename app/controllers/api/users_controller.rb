@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-  user_id = params[:id]
+  user_id = current_user.id
   @user = User.find(user_id)
   puts "user is"
   puts @user

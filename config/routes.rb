@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
   # get '/users' => 'users#index'
   
-  get '/users/:id' => 'users#show'
+  get '/user_profile' => 'users#show'
   post '/users' => 'users#create'
   # patch '/users/:id' => 'users#update'
   # delete '/users/:id' => 'users#destroy'
@@ -28,19 +28,19 @@ Rails.application.routes.draw do
   delete '/services/:id' => 'services#destroy'
 
   get '/maintenance_services' => 'maintenance_services#index'
-  get '/maintenance_services' => 'maintenance_services#show'
+  get '/maintenance_services/:id' => 'maintenance_services#show'
   post '/maintenance_services' => 'maintenance_services#create'
   patch '/maintenance_services/:id' => 'maintenance_services#update'
   delete '/maintenance_services/:id' => 'maintenance_services#destroy'
 
   get '/maintenance_events' => 'maintenance_events#index'
-  get '/maintenance_events' => 'maintenance_events#show'
+  get '/maintenance_events/:id' => 'maintenance_events#show'
   post '/maintenance_events' => 'maintenance_events#create'
   patch '/maintenance_events/:id' => 'maintenance_events#update'
   delete '/maintenance_events/:id' => 'maintenance_events#destroy'
 
   get '/car_parts' => 'car_parts#index'
-  get '/car_parts' => 'car_parts#show'
+  get '/car_parts/:id' => 'car_parts#show'
   post '/car_parts' => 'car_parts#create'
   patch '/car_parts/:id' => 'car_parts#update'
   delete '/car_parts/:id' => 'car_parts#destroy'

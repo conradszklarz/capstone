@@ -8,4 +8,8 @@ class MaintenanceEvent < ApplicationRecord
     services.include?(service)
   end
 
+  def formatted_time
+    date.strftime("%b %d, %Y") if date
+  end
+
 end
